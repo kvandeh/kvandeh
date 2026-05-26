@@ -42,9 +42,7 @@ Teachers author problems in plain markdown with test cases; students get a singl
 
 </td>
 </tr>
-</table>
-
-<table>
+</table><table>
 <tr>
 <td width="25%" valign="top">
 
