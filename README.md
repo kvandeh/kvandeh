@@ -10,12 +10,6 @@
   <a href="mailto:kieran.van.der.heijde@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/kvandeh">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=kvandeh&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20activity" alt="GitHub activity graph" />
-  </a>
-</p>
-
 ---
 
 ### About me
