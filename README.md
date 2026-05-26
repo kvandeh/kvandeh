@@ -22,19 +22,14 @@ I'm a long-time Python developer — over a decade in, and it still feels like t
 
 Outside of work I design, build, and operate two products end-to-end:
 
-🎯 **[PeekSeek.net](https://peekseek.net) — founder & sole developer**
-The **first-ever competitive matchmaking platform for *Unturned***, built and operated solo and **officially partnered with [Smartly Dressed Games](https://smartlydressedgames.com/)**, the studio behind Unturned. ELO-based queues, Steam auth, an in-browser kit editor, dedicated match servers, and a self-funded seasonal tournament — the **Unturned Competitive League (UCL)** — with prize pools paid for entirely by the platform.
-
-<sub>Live numbers (as of May 2026, ~2 months after launch):</sub>
-
+<h2>PeekSeek.net</h2>
 <p>
   <img alt="Users" src="https://img.shields.io/badge/players-1%2C000%2B-4F46E5?style=flat-square" />
-  <img alt="Matches" src="https://img.shields.io/badge/matches%20played-5%2C700%2B-4F46E5?style=flat-square" />
-  <img alt="Kits" src="https://img.shields.io/badge/custom%20kits-1%2C400%2B-4F46E5?style=flat-square" />
-  <img alt="Tournaments" src="https://img.shields.io/badge/tournaments-8-4F46E5?style=flat-square" />
+  <img alt="Matches" src="https://img.shields.io/badge/matches%20played-7%2C700%2B-4F46E5?style=flat-square" />
   <img alt="Signups" src="https://img.shields.io/badge/tournament%20signups-255-4F46E5?style=flat-square" />
   <img alt="Partner" src="https://img.shields.io/badge/Official%20partner-Smartly%20Dressed%20Games-EA4AAA?style=flat-square" />
 </p>
+The **first-ever competitive matchmaking platform for *Unturned***, built and operated solo and **officially partnered with [Smartly Dressed Games](https://smartlydressedgames.com/)**, the studio behind Unturned. ELO-based queues, Steam auth, an in-browser kit editor, dedicated match servers, and a self-funded seasonal tournament — the **Unturned Competitive League (UCL)** — with prize pools paid for entirely by the platform.
 
 🧑‍🏫 **[AlgoStudio.io](https://algostudio.io) — founder & sole developer**
 A teaching platform for algorithms and CS fundamentals, in use across schools in the Netherlands. Teachers author problems in plain markdown with test cases; students get a single-screen view of problem, editor, and test feedback. Built from scratch — no frameworks, no build step, intentionally fast.
