@@ -11,8 +11,6 @@
 
 Long-time Python developer. Over a decade in and it still feels like the right tool for most of what I want to build. By day I'm a **Software Engineer at ASML**, splitting time between production software, internal Python tooling, and the data-science work behind it. Outside ASML I design, build, and operate two products on my own.
 
-<hr>
-
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -45,8 +43,6 @@ Teachers author problems in plain markdown with test cases; students get a singl
 </td>
 </tr>
 </table>
-
-<hr>
 
 <table>
 <tr>
@@ -81,7 +77,6 @@ Teachers author problems in plain markdown with test cases; students get a singl
 </tr>
 </table>
 
-<hr>
 <p align="center">
   <a href="mailto:gh-contact@kcvdh.com"><img alt="Email" src="https://img.shields.io/badge/Contact-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
 </p>
