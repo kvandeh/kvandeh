@@ -10,6 +10,12 @@
   <a href="mailto:kieran.van.der.heijde@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/kvandeh">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=kvandeh&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20activity" alt="GitHub activity graph" />
+  </a>
+</p>
+
 ---
 
 ### About me
@@ -122,16 +128,6 @@ xychart-beta
 </td>
 </tr>
 </table>
-
-## GitHub at a glance
-
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=kvandeh&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
-  <img height="165" src="https://github-readme-streak-stats.herokuapp.com/?user=kvandeh&theme=tokyonight&hide_border=true" />
-</p>
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kvandeh&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
-</p>
 
 ## Work with me
 
