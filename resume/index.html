@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kieran van der Heijde — Résumé</title>
+<meta name="description" content="Résumé of Kieran van der Heijde — Python Engineer at ASML, Veldhoven. Python, Flask, FastAPI. Builder of PeekSeek and AlgoStudio." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://kcvdh.com/resume/" />
+<link rel="icon" href="/assets/kieran.jpg" />
+<style>
+  /* Light + single real text column on purpose: parses cleanly through ATS and
+     prints to a pixel-clean, selectable PDF. Brand teal/blue accents; backgrounds
+     forced to print so the design survives a "Save as PDF". */
+  :root {
+    --ink:#14171c; --soft:#464b54; --faint:#6b7280; --line:#e6eaef;
+    --accent:#0891b2;        /* cyan-blue, echoes the site's #6ee7d6 */
+    --accent-deep:#0e7490;
+    --accent-soft:#ecfeff;
+    --serif:"Iowan Old Style","Charter",Georgia,"Times New Roman",serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  }
+  * { box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { margin:0; background:#eef1f4; color:var(--ink); line-height:1.5; font-size:14px; font-family:var(--sans); }
+
+  .bar { max-width:860px; margin:0 auto; padding:14px 24px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .bar a, .bar button { font:inherit; cursor:pointer; border:none; padding:9px 16px; border-radius:8px; text-decoration:none; font-weight:600; }
+  .bar button { background:var(--accent); color:#fff; }
+  .bar .ghost { background:transparent; color:var(--accent-deep); border:1px solid var(--accent); }
+
+  .page { max-width:860px; margin:0 auto 44px; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px -18px rgba(8,145,178,.4), 0 2px 6px rgba(0,0,0,.06); }
+  .topband { height:6px; background:linear-gradient(90deg, var(--accent), var(--accent-deep) 60%, #6ee7d6); }
+  .inner { padding:44px 54px 50px; }
+
+  header.r-head { padding-bottom:16px; border-bottom:2px solid var(--line); margin-bottom:8px; }
+  header.r-head h1 { font-family:var(--serif); font-weight:600; margin:0; font-size:33px; letter-spacing:-0.01em; }
+  header.r-head .role { margin:4px 0 12px; font-size:15px; color:var(--accent-deep); font-weight:600; font-style:italic; }
+  header.r-head .contact { margin:0; font-size:12.5px; color:var(--soft); line-height:1.7; }
+  header.r-head .contact a { color:var(--accent-deep); text-decoration:none; font-weight:600; }
+  header.r-head .contact .sep { color:var(--line); margin:0 7px; }
+
+  section.r { margin-top:22px; }
+  section.r > h2 {
+    display:flex; align-items:center; gap:9px;
+    font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-deep);
+    margin:0 0 13px; font-weight:700;
+  }
+  section.r > h2::before { content:""; width:16px; height:3px; border-radius:2px; background:var(--accent); flex:none; }
+
+  .summary { color:var(--soft); margin:0; font-size:14.5px; }
+  .summary b { color:var(--ink); }
+
+  .entry { margin-bottom:15px; } .entry:last-child { margin-bottom:0; }
+  .entry .row { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline; }
+  .entry .title { font-weight:700; font-size:15px; }
+  .entry .where { color:var(--accent-deep); font-weight:600; }
+  .entry .when { color:var(--faint); font-size:12.5px; white-space:nowrap; }
+  .entry ul { margin:6px 0 0; padding-left:16px; color:var(--soft); }
+  .entry ul li { margin:3px 0; }
+  .entry ul li::marker { color:var(--accent); }
+  .entry p.detail { margin:5px 0 0; color:var(--soft); }
+  .entry p.detail em { color:var(--ink); font-style:normal; font-weight:600; }
+
+  .chips { display:flex; flex-wrap:wrap; gap:7px; }
+  .chip { background:var(--accent-soft); color:var(--accent-deep); border:1px solid #b6e6ef; border-radius:999px; padding:4px 11px; font-size:12.5px; font-weight:600; }
+
+  .compact .entry { margin-bottom:9px; }
+  .compact .entry .title { font-size:14px; }
+
+  @media print {
+    @page { size:A4; margin:13mm; }
+    body { background:#fff; font-size:10.6pt; }
+    .bar { display:none; }
+    .page { box-shadow:none; margin:0; border-radius:0; max-width:none; }
+    .inner { padding:0; }
+    a { color:var(--accent-deep); }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="ghost" href="/">← Back to site</a>
+  <button onclick="window.print()">Download PDF</button>
+</div>
+
+<div class="page">
+  <div class="topband"></div>
+  <div class="inner">
+
+    <header class="r-head">
+      <h1>Kieran van der Heijde</h1>
+      <p class="role">Software by profession, engineer by obsession.</p>
+      <p class="contact">
+        <a href="mailto:kieran@kcvdh.com">kieran@kcvdh.com</a><span class="sep">·</span>
+        <a href="https://kcvdh.com">kcvdh.com</a><span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/kcvdh">linkedin.com/in/kcvdh</a><span class="sep">·</span>
+        <a href="https://github.com/kvandeh">github.com/kvandeh</a><span class="sep">·</span>
+        Eindhoven region, Netherlands
+      </p>
+    </header>
+
+    <section class="r">
+      <h2>Summary</h2>
+      <p class="summary">
+        <b>Python Engineer at ASML</b> and the builder behind two live products. I joined to automate
+        spreadsheets, took on Python development, and moved into a Python Engineer role within the year.
+        On my own time I take products from empty repo to real users: <b>PeekSeek</b> (officially partnered
+        with its game's studio) and <b>AlgoStudio</b>. Most at home in Python with Flask and FastAPI, and
+        happy owning the whole stack from backend to UX.
+      </p>
+    </section>
+
+    <section class="r">
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Python Engineer</span> · <span class="where">ASML — Veldhoven, NL</span></span>
+          <span class="when">Nov 2025 – Present</span>
+        </div>
+        <ul>
+          <li>Build and extend internal products in Python and JavaScript across the business.</li>
+          <li>Turn complex requirements into simple, robust tools; a believer in DRY and self-documenting code.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Automation Developer</span> · <span class="where">ASML — Eindhoven, NL</span></span>
+          <span class="when">Feb 2025 – Nov 2025</span>
+        </div>
+        <ul>
+          <li>Hired for spreadsheet automation; after showing Python and broader engineering ability, was trusted with a series of development projects.</li>
+          <li>Delivered them successfully, leading to promotion to Python Engineer.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="r">
+      <h2>Products I've built</h2>
+      <div class="entry">
+        <div class="row"><span><span class="title">PeekSeek</span> · <span class="where">Creator · peekseek.net</span></span></div>
+        <p class="detail">
+          <em>The first competitive scene for Unturned, officially partnered with Smartly Dressed Games, the studio behind the game.</em>
+          Non-profit ranked platform with skill-based matchmaking and the community's biggest tournaments. 1,000+ players, 7,700+ matches. Designed, built, and operated solo.
+        </p>
+      </div>
+      <div class="entry">
+        <div class="row"><span><span class="title">AlgoStudio</span> · <span class="where">Sole engineer · algostudio.io</span></span></div>
+        <p class="detail">
+          <em>A platform for teaching computer science, in pilot with schools across the Netherlands.</em>
+          One clean screen where students write code and instantly see if it works, every run sandboxed in a container. Built from scratch, no framework, no build step. Python &amp; C#.
+        </p>
+      </div>
+    </section>
+
+    <section class="r">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">Flask</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Linux</span>
+        <span class="chip">Git</span>
+        <span class="chip">HTML / CSS</span>
+        <span class="chip">HTMX</span>
+        <span class="chip">pandas / numpy</span>
+        <span class="chip">Product &amp; UX</span>
+      </div>
+    </section>
+
+    <section class="r compact">
+      <h2>Additional experience</h2>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Swim Instructor &amp; Coach</span> · <span class="where">Helmondse Watervrienden</span></span>
+          <span class="when">Feb 2021 – Present</span>
+        </div>
+        <p class="detail">Four+ years teaching and coaching swimming as a volunteer. Reliability, responsibility, and working with people of all ages.</p>
+      </div>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Nursing Intern</span> · <span class="where">Elisabeth-TweeSteden Ziekenhuis (ETZ)</span></span>
+          <span class="when">Nov 2025 – Jan 2026</span>
+        </div>
+        <p class="detail">Clinical placement in a large teaching hospital.</p>
+      </div>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Lifeguard</span> · <span class="where">Optisport — Helmond, NL</span></span>
+          <span class="when">Nov 2023 – May 2024</span>
+        </div>
+        <p class="detail">Lifeguarding and customer service.</p>
+      </div>
+    </section>
+
+    <section class="r">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">HAVO — Natuur &amp; Techniek and Natuur &amp; Gezondheid</span> · <span class="where">bilingual · Jan van Brabant College</span></span>
+          <span class="when">2024</span>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="row">
+          <span><span class="title">Cambridge IGCSE (English)</span> · <span class="where">University of Cambridge</span></span>
+          <span class="when">2024</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="r">
+      <h2>Languages</h2>
+      <p class="summary">Dutch (native) <span style="color:var(--line)">·</span> English (Cambridge-certified). Officially bilingual.</p>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>

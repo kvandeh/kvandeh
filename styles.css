@@ -1,0 +1,142 @@
+/* ============================================================
+   Kieran van der Heijde — personal site
+   No framework, no build step. One accent var, swap to re-skin.
+   Spacing on a 4/8px rhythm; three rounding tokens, used everywhere.
+   ============================================================ */
+
+:root {
+  --bg:        #0b0b0d;
+  --bg-raise:  #141417;
+  --line:      #26262c;
+  --text:      #f0ede7;
+  --muted:     #a2a2aa;
+  --faint:     #6f6f78;
+  --accent:    #6ee7d6;
+  --accent-ink:#06201c;
+
+  /* rounding scale */
+  --radius:      10px;   /* controls: buttons, inputs */
+  --radius-lg:   16px;   /* cards, media */
+  --radius-pill: 999px;  /* chips, pills */
+
+  --maxw: 1120px;
+  --pad: clamp(20px, 5vw, 64px);
+  --serif: "Iowan Old Style", "Charter", "Georgia", "Times New Roman", serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+a { color: inherit; text-decoration: none; }
+em { font-style: italic; color: var(--accent); }
+strong { color: var(--text); font-weight: 650; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--accent-ink); padding: 10px 16px; border-radius: var(--radius); z-index: 100; }
+.skip:focus { left: 12px; top: 12px; }
+
+/* ---------- top bar (solid, no blur) ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px calc(var(--pad) + max(0px, (100% - var(--maxw)) / 2));
+  background: var(--bg);
+}
+.topbar nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); }
+
+/* ---------- shared ---------- */
+main > section { max-width: var(--maxw); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--pad); }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px;
+  color: var(--text); font-weight: 560; font-size: 0.9rem;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+.iconlink { display: inline-flex; align-items: center; justify-content: center; padding: 0 4px; color: var(--muted); transition: color .18s ease; }
+.iconlink svg { width: 19px; height: 19px; fill: currentColor; }
+.iconlink:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 680; border-radius: var(--radius);}
+
+/* ---------- hero ---------- */
+.hero { padding-top: clamp(40px, 6vw, 72px); }
+.hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.5rem, 6.4vw, 4.3rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 24px; }
+.lede { max-width: 56ch; font-size: clamp(1.04rem, 1.7vw, 1.22rem); color: var(--muted); margin: 0 0 32px; }
+
+/* ASML "currently" snippet — sits on top of the hero text */
+.now-chip { display: inline-flex; align-items: center; gap: 9px; }
+.now-chip-photo { position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: linear-gradient(150deg, #1d1d22, #0e0e11); border: 1px solid var(--line); }
+.now-chip-photo img { width: 100%; height: 100%; object-fit: cover; }
+.now-chip-initials { display: none; font-family: var(--serif); font-size: 0.95rem; color: var(--accent); }
+.now-chip-photo.noimg .now-chip-initials { display: block; }
+.now-chip-role { font-size: 0.9rem; color: var(--text); }
+.now-loc { color: var(--faint); margin-left: 9px; }
+.pin { width: 13px; height: 13px; fill: currentColor; vertical-align: -2px; margin-right: 4px; }
+.asml-logo { height: 0.8em; width: auto; margin: 0 2px; vertical-align: -0.04em; filter: brightness(0) invert(1); }
+
+/* logo strip — a slow, continuous moving LINE of faint wordmark logos */
+.brandstrip { max-width: none; overflow: hidden; padding: clamp(18px, 3vw, 30px) 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.brand-track { display: flex; align-items: center; width: max-content; animation: brand-scroll 60s linear infinite; }
+.brand { flex: 0 0 auto; height: 18px; width: auto; margin-right: clamp(30px, 3.5vw, 52px); opacity: 0.42; filter: brightness(0) invert(1); }
+@keyframes brand-scroll { to { transform: translateX(-33.333%); } }
+@media (prefers-reduced-motion: reduce) { .brand-track { animation: none; } }
+
+/* ---------- work / projects ---------- */
+.work { display: flex; flex-direction: column; gap: clamp(48px, 6vw, 84px); max-width: 1220px; }
+.proj { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 60px); align-items: center; }
+.proj.reverse .shot { order: 2; }
+
+.shot { display: block; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-raise); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.shot-bar { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; background: #101013; border-bottom: 1px solid var(--line); }
+.shot-bar b { font-weight: 500; font-size: 0.82rem; color: var(--faint); }
+.shot-bar::after { content: "Visit ↗"; font-size: 0.75rem; letter-spacing: 0.03em; color: var(--faint); transition: color .2s ease; }
+.shot-img { display: block; position: relative; aspect-ratio: 16 / 10; }
+.shot-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.shot-fallback { position: absolute; inset: 0; display: none; place-items: center; font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 2rem); color: var(--faint); background: radial-gradient(120% 120% at 30% 0%, #17171c, #0c0c0f); }
+.shot-img.noimg .shot-fallback { display: grid; }
+
+.proj-copy h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4.4vw, 2.7rem); letter-spacing: -0.02em; margin: 0 0 12px; }
+.proj-copy h2 a { color: inherit; transition: color .18s ease; }
+.proj-line { font-size: clamp(1.12rem, 1.9vw, 1.4rem); line-height: 1.4; margin: 0 0 16px; }
+.proj-sub { color: var(--muted); margin: 0 0 24px; max-width: 50ch; }
+.proj-link { display: inline-block; color: var(--accent); font-weight: 600; border-bottom: 1px solid transparent; transition: border-color .18s ease; }
+
+/* ---------- contact ---------- */
+.contact { text-align: center; }
+.contact h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 5vw, 3.1rem); letter-spacing: -0.02em; margin: 0 0 16px; }
+.contact p { color: var(--muted); max-width: 50ch; margin: 0 auto 28px; }
+.contact .cta-row { justify-content: center; }
+
+/* ---------- footer ---------- */
+.foot { max-width: var(--maxw); margin: 0 auto; padding: 28px var(--pad) 48px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--faint); font-size: 0.88rem; }
+.foot-links { display: flex; gap: 20px; }
+
+/* ---------- reveal ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .proj { grid-template-columns: 1fr; gap: 24px; }
+  .proj.reverse .shot { order: 0; }
+}
+@media (max-width: 560px) {
+  .topbar nav a:not(.btn) { display: none; }
+  .brand { height: 13px; }
+  .now-loc { display: none; }
+}

@@ -1,81 +1,32 @@
-<p align="center" style="font-size: 26px;">
-  Python Engineer @ <b>ASML</b>, Founder of <a href="https://peekseek.net"><b>PeekSeek</b></a> & <a href="https://algostudio.io"><b>AlgoStudio</b></a>.
+<h1 align="center">Kieran van der Heijde</h1>
+
+<p align="center">
+  <i>Software by profession, engineer by obsession.</i>
 </p>
 
 <p align="center">
+  <a href="https://kcvdh.com"><img alt="Website" src="https://img.shields.io/badge/kcvdh.com-0B0B0D?logo=safari&logoColor=6EE7D6&style=for-the-badge" /></a>
   <a href="https://www.linkedin.com/in/kcvdh"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white&style=for-the-badge" /></a>
-  <a href="https://github.com/sponsors/kvandeh"><img alt="Sponsor" src="https://img.shields.io/badge/Sponsor-EA4AAA?logo=githubsponsors&logoColor=white&style=for-the-badge" /></a>
-  <a href="mailto:gh-contact@kcvdh.com"><img alt="Email" src="https://img.shields.io/badge/Contact-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
+  <a href="mailto:kieran@kcvdh.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
+  <a href="https://kcvdh.com/resume/"><img alt="Résumé" src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-1f1f23?style=for-the-badge" /></a>
 </p>
 
+By day I'm a **Python Engineer at ASML** in Veldhoven. The rest of the time I design, build, and run my own products, top to bottom. What I care about most is the part that's easy to skip: whether the thing is genuinely good to use, not just whether it works.
 
-Long-time Python developer. Over a decade in and it still feels like the right tool for most of what I want to build. By day I'm a **Software Engineer at ASML**, splitting time between production software, internal Python tooling, and the data-science work behind it. Outside ASML I design, build, and operate two products on my own.
+### 🎯 PeekSeek — [peekseek.net](https://peekseek.net)
 
-<table>
-<tr>
-<td width="50%" valign="top">
+The first competitive scene for **_Unturned_** — and the studio behind the game partnered with it.
 
-<p valign="center">
-  <a href="https://peekseek.net"><img src="https://cdn.peekseek.net/img/cmw.png" alt="PeekSeek" height="32" /></a>
-  </a>
-</p>
+A non-profit ranked platform for **_Unturned_**: skill-based queues, the biggest tournaments the community has run, **1,000+ players** and **7,700+ matches** — officially partnered with **[Smartly Dressed Games](https://smartlydressedgames.com/)**. Designed, built, and operated solo.
 
-<p>
-  <img alt="partner" src="https://img.shields.io/badge/partner-Unturned-66FF66?style=flat-square" />
-  <img alt="players" src="https://img.shields.io/badge/players-1%2C000%2B-FF6666?style=flat-square" />
-  <img alt="matches" src="https://img.shields.io/badge/matches-7%2C700%2B-FF6666?style=flat-square" />
-  <img alt="signups" src="https://img.shields.io/badge/signups-255-FF6666?style=flat-square" />
-</p>
+### 📚 AlgoStudio — [algostudio.io](https://algostudio.io)
 
-The first-ever competitive matchmaking platform for *Unturned*, officially partnered with **[Smartly Dressed Games](https://smartlydressedgames.com/)**, the studio behind Unturned.
+The tool I wish students had: one clean screen where you write code and instantly see if it works.
 
-ELO-based queues, Steam auth, in-browser kit editor, & the biggest tournaments ever hosted for Unturned.
+A platform for teaching computer science that I build and run as the **sole engineer** — now in pilot with some of the bigger schools in the Netherlands. Zero setup, nothing to install, deliberately fast.
 
-</td>
-<td width="50%" valign="top">
-
-<a href="https://algostudio.io" style="font-size:26px;">algostudio.io</a>
-
-A teaching platform for algorithms and CS fundamentals.
-
-Teachers author problems in plain markdown with test cases; students get a single-screen view of problem, editor, and live test feedback. Built from scratch. No frameworks, no build step, deliberately fast.
-
-</td>
-</tr>
-</table><table>
-<tr>
-<td width="25%" valign="top">
-
-### DRY
-
-<sub><strong>Don't Repeat Yourself.</strong> Duplication is the root of bugs that drift apart over time. If two pieces of code know the same thing, they share an abstraction, or one of them is wrong.</sub>
-
-</td>
-<td width="25%" valign="top">
-
-### Never Nesting
-
-<sub><strong>Flatten with early returns and inversion.</strong> Deep nesting hides logic and breeds bugs. If I'm three levels deep, I extract a function or flip a guard.</sub>
-
-</td>
-<td width="25%" valign="top">
-
-### Comments explain *why*, not *what*
-
-<sub><strong>Self-documenting code.</strong> Good names beat comments. The only comments worth writing capture a constraint, surprise, or workaround the code itself can't express.</sub>
-
-</td>
-<td width="25%" valign="top">
-
-### Always containerize
-
-<sub><strong>If it doesn't run in a container, it doesn't really run.</strong> Reproducibility from day one. Same environment locally, in CI, and in prod. No "works on my machine."</sub>
-
-</td>
-</tr>
-</table>
+---
 
 <p align="center">
-  <a href="mailto:gh-contact@kcvdh.com"><img alt="Email" src="https://img.shields.io/badge/Contact-D14836?logo=gmail&logoColor=white&style=for-the-badge" /></a>
+  <b>→ See both, up close, at <a href="https://kcvdh.com">kcvdh.com</a></b>
 </p>
-  
