@@ -10,7 +10,7 @@
 #### Currently building
 
 - **[PeekSeek](https://peekseek.net)** — competitive matchmaking for *Unturned*. 1,000+ players, 7,700+ matches, officially partnered with Smartly Dressed Games. Built and run solo.
-- **[AlgoStudio](https://algostudio.io)** — a platform for teaching computer science, in pilot with schools across the Netherlands. Sole engineer, built from scratch.
+- **[AlgoStudio](https://algostudio.io)** — a platform for teaching computer science: write Python or C#, run it sandboxed, get live per-test feedback, and let teachers generate problems + tests with an AI assistant. Sole engineer.
 - **[Bouncer](https://github.com/kvandeh/Bouncer)** — an LLM-driven Spotify Jam filter: track embeddings + an LLM judge, 95% on a 963-track eval. A research prototype, honestly documented.
 
 #### Tech I reach for
