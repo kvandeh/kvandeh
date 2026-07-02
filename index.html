@@ -36,7 +36,8 @@
   "url": "https://kcvdh.com",
   "email": "mailto:kieran@kcvdh.com",
   "knowsLanguage": ["en", "nl"],
-  "knowsAbout": ["Python", "Flask", "FastAPI", "Backend Engineering", "Product", "UX"],
+  "knowsAbout": ["Python", "Flask", "FastAPI", "Backend Engineering", "Product", "UX", "UX Research", "Human-Computer Interaction"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Tilburg University" },
   "sameAs": ["https://www.linkedin.com/in/kcvdh", "https://github.com/kvandeh"]
 }
 </script>
@@ -117,42 +118,57 @@
     </div>
   </section>
 
-  <!-- WORK: the star of the page. Big visuals, plain language, let the products talk. -->
+  <!-- WORK: metric bands. Real numbers only; qualitative facts where numbers don't exist. -->
   <section class="work" id="work">
 
-    <article class="proj reveal">
-      <a class="shot" href="https://peekseek.net" data-track="proj-peekseek-shot" aria-label="Open PeekSeek">
-        <span class="shot-bar"><b>peekseek.net</b></span>
-        <span class="shot-img">
-          <img src="./assets/peekseek.png" alt="PeekSeek — competitive matchmaking for Unturned" loading="lazy"
-               onerror="this.style.display='none';this.parentNode.classList.add('noimg')" />
-          <span class="shot-fallback">peekseek.net</span>
-        </span>
-      </a>
-      <div class="proj-copy">
-        <h2><a href="https://peekseek.net" data-track="proj-peekseek-title">PeekSeek</a></h2>
-        <p class="proj-line">The first competitive scene for <em>Unturned</em> — and the studio behind the game partnered with it.</p>
-        <p class="proj-sub">A non-profit ranked platform for <em>Unturned</em>: skill-based queues, the biggest tournaments the community has run, <strong>1,000+ players</strong> and <strong>7,700+ matches</strong> — officially partnered with Smartly Dressed Games.</p>
-        <a class="proj-link" href="https://peekseek.net" data-track="proj-peekseek">Visit peekseek.net ↗</a>
+    <article class="band reveal">
+      <div class="band-top">
+        <img class="band-logo" src="./assets/logos/wm/peekseek.png" alt="PeekSeek" />
+        <span class="band-rule"></span>
+        <a class="band-visit" href="https://peekseek.net" data-track="proj-peekseek">Visit peekseek.net ↗</a>
+      </div>
+      <p class="band-line">The first competitive scene for <em>Unturned</em> — and the studio behind the game partnered with it.</p>
+      <div class="band-stats">
+        <div class="bstat"><span class="bstat-num">1,000<em>+</em></span><span class="bstat-label">players</span></div>
+        <div class="bstat"><span class="bstat-num">7,700<em>+</em></span><span class="bstat-label">matches played</span></div>
+      </div>
+      <div class="band-foot">
+        <span class="band-partner">Official partner · Smartly Dressed Games</span>
+        <span>Python · FastAPI · PostgreSQL · Docker · built &amp; operated solo</span>
       </div>
     </article>
 
-    <article class="proj reverse reveal">
-      <a class="shot" href="https://algostudio.io" data-track="proj-algostudio-shot" aria-label="Open AlgoStudio">
-        <span class="shot-bar"><b>algostudio.io</b></span>
-        <span class="shot-img">
-          <img src="./assets/algostudio.png" alt="AlgoStudio — a platform for teaching computer science" loading="lazy"
-               onerror="this.style.display='none';this.parentNode.classList.add('noimg')" />
-          <span class="shot-fallback">algostudio.io</span>
-        </span>
-      </a>
-      <div class="proj-copy">
-        <h2><a href="https://algostudio.io" data-track="proj-algostudio-title">AlgoStudio</a></h2>
-        <p class="proj-line">The tool I wish students had: one clean screen where you write code and instantly see if it works.</p>
-        <p class="proj-sub">A platform for teaching computer science that I built and run as the sole engineer — now in pilot with some of the bigger schools in the Netherlands. Teachers write the lessons; students just learn, with zero setup and nothing to install.</p>
-        <a class="proj-link" href="https://algostudio.io" data-track="proj-algostudio">Visit algostudio.io ↗</a>
+    <article class="band reveal">
+      <div class="band-top">
+        <img class="band-logo" src="./assets/logos/wm/algostudio.svg" alt="AlgoStudio" />
+        <span class="band-rule"></span>
+        <a class="band-visit" href="https://algostudio.io" data-track="proj-algostudio">Visit algostudio.io ↗</a>
+      </div>
+      <p class="band-line">The tool I wish students had: one clean screen where you write code and instantly see if it works.</p>
+      <ul class="band-facts">
+        <li><b>In pilot</b> · bigger NL schools</li>
+        <li><b>Sole engineer</b> · built from scratch</li>
+        <li><b>Browser-based</b> · zero setup, nothing to install</li>
+      </ul>
+      <div class="band-foot">
+        <span>Python · C# · Docker · HTMX · no framework, no build step</span>
       </div>
     </article>
+
+    <!-- Experiments tier: honestly-framed prototypes, not shipped products. -->
+    <div class="lab reveal">
+      <p class="lab-eyebrow">Experiments</p>
+      <a class="xcard" href="https://github.com/kvandeh/Bouncer" target="_blank" rel="noopener" data-track="proj-bouncer">
+        <div class="xcard-head">
+          <h3>Bouncer</h3>
+          <span class="xcard-status">Research prototype</span>
+        </div>
+        <p class="xcard-line">A filtered Spotify Jam: guests request songs, the host writes a plain-language vibe (<em>"keep it energetic, no rap"</em>) and an <em>LLM-driven filter</em> decides what reaches the queue — track embeddings scored against the prompt, with an LLM judge on the borderline cases. <strong>95.2%</strong> on a 963-track eval set. An honest work-in-progress into how far cultural knowledge can stand in for audio features.</p>
+        <ul class="xcard-tags">
+          <li>Python</li><li>FastAPI</li><li>Embeddings</li><li>LLM-as-judge</li><li>Spotify API</li>
+        </ul>
+      </a>
+    </div>
 
   </section>
 
