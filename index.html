@@ -132,58 +132,65 @@
     </div>
   </section>
 
-  <!-- WORK: metric bands. Real numbers only; qualitative facts where numbers don't exist. -->
-  <section class="work" id="work">
+  <!-- WORK: Angelo as the lead story, three projects underneath. -->
+  <section class="work-x" id="work">
+    <div class="ed">
 
-    <article class="band reveal">
-      <div class="band-top">
-        <img class="band-logo" src="./assets/logos/wm/peekseek.png" alt="PeekSeek" />
-        <span class="band-rule"></span>
-        <a class="band-visit" href="https://peekseek.net" data-track="proj-peekseek">Visit peekseek.net ↗</a>
-      </div>
-      <p class="band-line">The first competitive scene for <em>Unturned</em>, and the studio behind the game partnered with it.</p>
-      <div class="band-stats">
-        <div class="bstat"><span class="bstat-num">2,000<em>+</em></span><span class="bstat-label">users</span></div>
-        <div class="bstat"><span class="bstat-num">10,000<em>+</em></span><span class="bstat-label">matches played</span></div>
-      </div>
-      <div class="band-foot">
-        <span class="band-partner">Official partner · Smartly Dressed Games</span>
-        <span>Built &amp; operated solo</span>
-      </div>
-    </article>
-
-    <article class="band reveal">
-      <div class="band-top">
-        <img class="band-logo" src="./assets/logos/wm/algostudio.svg" alt="AlgoStudio" />
-        <span class="band-rule"></span>
-        <a class="band-visit" href="https://algostudio.io" data-track="proj-algostudio">Visit algostudio.io ↗</a>
-      </div>
-      <p class="band-line">The tool I wish students had: one clean screen where you write code and instantly see if it works.</p>
-      <ul class="band-facts">
-        <li><b>Live per-test feedback</b> · see exactly what passes, as you type</li>
-        <li><b>Sandboxed Python &amp; C#</b> · isolated runs, kept fast with a warm pool</li>
-        <li><b>AI problem builder</b> · teachers generate problems &amp; test cases</li>
-      </ul>
-      <div class="band-foot">
-        <span>Flask · HTMX · C# · Docker · built and run solo</span>
-      </div>
-    </article>
-
-    <!-- Experiments tier: honestly-framed prototypes, not shipped products. -->
-    <div class="lab reveal">
-      <p class="lab-eyebrow">Experiments</p>
-      <a class="xcard" href="https://github.com/kvandeh/Bouncer" target="_blank" rel="noopener" data-track="proj-bouncer">
-        <div class="xcard-head">
-          <h3>Bouncer</h3>
-          <span class="xcard-status">Research prototype</span>
+      <article class="ed-lead reveal">
+        <div class="ed-top">
+          <h2>Python mutation testing, <em>10× faster.</em></h2>
         </div>
-        <p class="xcard-line">A filtered Spotify Jam: guests request songs, the host writes a plain-language vibe (<em>"keep it energetic, no rap"</em>) and an <em>LLM-driven filter</em> decides what reaches the queue: track embeddings scored against the prompt, with an LLM judge on the borderline cases. <strong>95.2%</strong> on a 963-track eval set. An honest work-in-progress into how far cultural knowledge can stand in for audio features.</p>
-        <ul class="xcard-tags">
-          <li>Python</li><li>FastAPI</li><li>Embeddings</li><li>LLM-as-judge</li><li>Spotify API</li>
-        </ul>
-      </a>
-    </div>
+        <p>
+          Mutation coverage is seen as the best measure of a test suite. The blocker of using it was the speed.
+          Today, <b>Angelo</b> can calculate the score within <b>4.5 seconds</b>. Optimizations validated by published papers.
+        </p>
+        <div class="links">
+          <a class="lbtn" href="https://angelo.kcvdh.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="arr"><path d="M7 17 17 7M9 7h8v8"/></svg>Docs</a>
+          <a class="lbtn" href="https://github.com/kvandeh/Angelo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+        </div>
+      </article>
 
+      <div class="ed-cols">
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <img class="p-logo" src="./assets/logos/wm/peekseek.png" alt="PeekSeek" />
+            <img class="tech" src="./assets/rocketmod.png" alt="RocketMod" title="RocketMod" />
+          </div>
+          <p>
+            Over <b>2,500 users</b> have played ranked matchmaking & automated events. Operating solo <b>marketing</b> was a big part.
+          </p>
+          <div class="links">
+            <a class="lbtn" href="https://peekseek.net" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="arr"><path d="M7 17 17 7M9 7h8v8"/></svg>Live</a>
+            <a class="lbtn" href="https://github.com/PeekSeek/PeekSeek" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+          </div>
+        </article>
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <img class="p-logo" src="./assets/logos/wm/algostudio.svg" alt="AlgoStudio" />
+            <img class="tech" src="./assets/docker.svg" alt="Docker" title="Docker" />
+          </div>
+          <p>
+            Solving many real issues together with teachers from 3 applied universities in the Netherlands.
+          </p>
+        </article>
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <span class="p-word">Bouncer</span>
+            <span class="tech-ai" title="AI">AI</span>
+          </div>
+          <p>
+            Not all projects succeed, I found that current day LLM's perform poorly to judge songs based on their training.
+          </p>
+          <div class="links">
+            <a class="lbtn" href="https://github.com/kvandeh/Bouncer" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
   </section>
 
   <section class="contact reveal" id="contact">
