@@ -26,6 +26,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Turns articles/*/index.md into pages, refreshes the carousel, footer and sitemap.
+      - name: Build articles
+        run: pip install markdown && python3 build.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -43,7 +47,8 @@ jobs:
       # Tell Bing, Yandex and other IndexNow engines the pages changed.
       - name: Ping IndexNow
         run: |
+          URLS=$(grep -o 'https://kcvdh.com/[^<]*' sitemap.xml | sed 's/.*/"&"/' | paste -sd,)
           curl -sS -X POST https://api.indexnow.org/indexnow \
             -H 'Content-Type: application/json; charset=utf-8' \
-            -d '{"host":"kcvdh.com","key":"12b6164e53b149f6b7ea5543f1d5cc12","keyLocation":"https://kcvdh.com/12b6164e53b149f6b7ea5543f1d5cc12.txt","urlList":["https://kcvdh.com/","https://kcvdh.com/links.html","https://kcvdh.com/resume.pdf"]}' \
+            -d "{\"host\":\"kcvdh.com\",\"key\":\"12b6164e53b149f6b7ea5543f1d5cc12\",\"keyLocation\":\"https://kcvdh.com/12b6164e53b149f6b7ea5543f1d5cc12.txt\",\"urlList\":[$URLS]}" \
             -w 'IndexNow HTTP %{http_code}\n'

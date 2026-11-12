@@ -645,3 +645,314 @@ main > section {
   width: 14px;
   height: 14px;
 }
+
+/* ---------- Articles: carousel, index, post ---------- */
+.articles h1,
+.articles-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.articles-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.acard a:focus-visible,
+.foot a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.carousel,
+.article-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 32px;
+}
+.carousel {
+  grid-auto-flow: column;
+  /* 3.1 cards in view: the fourth peeks out as a hint to scroll. */
+  grid-auto-columns: calc((100% - 3 * 32px) / 3.1);
+  overscroll-behavior-x: contain;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.article-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-top: 24px;
+}
+.acard {
+  scroll-snap-align: start;
+}
+.acard[hidden] {
+  display: none;
+}
+.acard a {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  cursor: pointer;
+}
+.acard img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+.acard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.acard h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+.acard p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.acard-meta {
+  color: var(--faint);
+  font-size: 0.78rem;
+}
+.articles-all {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.featured {
+  font-size: 0.66rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.post {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 72px) var(--pad);
+}
+.post-head h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 14px 0 8px;
+}
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+.byline img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.byline-date {
+  margin-left: auto;
+  color: var(--faint);
+}
+.post-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.post-body h2 {
+  font-family: var(--serif);
+  color: var(--text);
+  font-size: 1.3rem;
+  margin: 2.2em 0 0.5em;
+}
+.post-body h3 {
+  color: var(--text);
+  font-size: 1.02rem;
+  margin: 1.8em 0 0.4em;
+}
+.post-body a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.post-body img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 1.6em 0 0.4em;
+}
+.post-body p:has(> em:only-child) {
+  color: var(--faint);
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+.post-body p:has(> em:only-child) em {
+  color: inherit;
+}
+.post-body li {
+  margin-bottom: 0.4em;
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  display: block;
+  margin-top: 40px;
+  padding-top: 48px;
+}
+.foot-cols {
+  display: grid;
+  /* Each column takes its own width; the free space is split evenly between them. */
+  grid-template-columns: auto auto minmax(0, auto);
+  justify-content: space-between;
+  gap: 32px 48px;
+}
+.foot-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+.foot-role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 16px;
+}
+/* The ASML logo as a mask, so it takes the text colour next to it. */
+.asml-mark {
+  display: inline-block;
+  width: 42px;
+  height: 11px;
+  background: currentColor;
+  -webkit-mask: url("assets/asml.svg") left center / contain no-repeat;
+  mask: url("assets/asml.svg") left center / contain no-repeat;
+}
+.foot-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  line-height: 1;
+}
+.foot-icons a,
+.foot-icons .iconlink {
+  color: inherit;
+  padding: 0;
+}
+.foot-icons svg {
+  width: 16px;
+  height: 16px;
+}
+.foot h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.foot ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.foot-legal {
+  margin: 40px 0 0;
+}
+@media (max-width: 760px) {
+  .foot-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+  .foot-about {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 900px) {
+  .carousel {
+    grid-auto-columns: calc((100% - 2 * 32px) / 2.2);
+  }
+}
+@media (max-width: 640px) {
+  .carousel {
+    grid-auto-columns: calc((100% - 20px) / 1.2);
+  }
+}
+/* Hidden on screen, still read by screen readers and used for page structure. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.articles-head {
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+/* Footer article titles stay on one line and end in an ellipsis when too long. */
+.foot nav {
+  min-width: 0;
+}
+.foot nav li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.read-next-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.article-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px;
+}
+/* Code blocks: Prism colours the tokens; the block itself matches the site. */
+.post-body pre[class*="language-"] {
+  background: var(--bg-raise);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 1.4em 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+.post-body :not(pre) > code {
+  font-size: 0.88em;
+  color: var(--text);
+  background: var(--bg-raise);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
