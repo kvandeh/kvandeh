@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kcvdh.com/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kcvdh.com/#projects</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kcvdh.com/#about</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kcvdh.com/articles/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kcvdh.com/resume.pdf</loc></url>
   <url><loc>https://kcvdh.com/articles/peekseek-infrastructure/</loc><lastmod>2026-11-12</lastmod></url>
@@ -8,6 +10,4 @@
   <url><loc>https://kcvdh.com/articles/algostudio-sandbox/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://kcvdh.com/articles/bouncer-retrospective/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://angelo.kcvdh.com/</loc></url>
-  <url><loc>https://github.com/kvandeh/Angelo</loc></url>
-  <url><loc>https://github.com/kvandeh/Bouncer</loc></url>
 </urlset>
