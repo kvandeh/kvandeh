@@ -15,16 +15,6 @@ import markdown
 SITE = "https://kcvdh.com"
 ROOT = Path(__file__).parent
 ARTICLES = ROOT / "articles"
-EXTERNAL_LINKS = [
-    "https://www.linkedin.com/in/kcvdh",
-    "https://github.com/kvandeh",
-    "https://github.com/sponsors/kvandeh",
-    "https://peekseek.net/",
-    "https://github.com/PeekSeek/PeekSeek",
-    "https://angelo.kcvdh.com/",
-    "https://github.com/kvandeh/Angelo",
-    "https://github.com/kvandeh/Bouncer",
-]
 
 
 def read_article(md_file):
@@ -311,7 +301,7 @@ def sitemap(articles):
     today = datetime.date.today().isoformat()
     pages = [(f"{SITE}/", today), (f"{SITE}/articles/", today), (f"{SITE}/resume.pdf", None)]
     pages += [(f"{SITE}/articles/{a['slug']}/", a["date"].isoformat()) for a in articles]
-    pages += [(link, None) for link in EXTERNAL_LINKS]
+    pages.append(("https://angelo.kcvdh.com/", None))
     rows = "".join(
         f"  <url><loc>{loc}</loc>{f'<lastmod>{mod}</lastmod>' if mod else ''}</url>\n" for loc, mod in pages
     )
