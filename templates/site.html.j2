@@ -1,0 +1,22 @@
+{# /site/: every page as cards, built from the same lists as sitemap.xml and llms.txt. #}
+{% extends "base.html.j2" %}
+{% from "cards.html.j2" import article_card, page_card %}
+
+{% block main %}
+  <section class="articles">
+    <h1 class="sr-only">Site map</h1>
+    <h2 class="read-next-title">Pages</h2>
+    <ul class="article-grid" role="list">
+      {{ page_card(root, "Home", "Who I am, PeekSeek, AlgoStudio and how to reach me.") }}
+      {{ page_card(root ~ "#projects", "Projects", "PeekSeek, AlgoStudio, Angelo and Bouncer.") }}
+      {% for p in pages %}{{ page_card(root ~ p.slug ~ "/", p.title, p.card) }}
+      {% endfor %}
+      {{ page_card(root ~ "resume.pdf", "Resume", "My resume as a PDF.") }}
+    </ul>
+    <h2 class="read-next-title site-articles-title">Articles</h2>
+    <ul class="article-grid" role="list">
+      {% for a in articles %}{{ article_card(a, root) }}
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

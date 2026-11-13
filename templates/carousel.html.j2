@@ -1,0 +1,60 @@
+{% from "cards.html.j2" import article_card %}<!-- build:articles -->
+  <section class="articles reveal" id="articles" aria-labelledby="articles-title">
+    <div class="articles-head">
+      <h2 id="articles-title" class="sr-only">Articles</h2>
+      <a class="articles-all" href="articles/">All articles &rarr;</a>
+    </div>
+    <ul class="carousel" role="list">
+      {% for a in articles %}{{ article_card(a, "") }}
+      {% endfor %}
+    </ul>
+  </section>
+  <script>
+    (function () {
+      var track = document.querySelector('.carousel');
+      function step() { return track.firstElementChild.offsetWidth + parseFloat(getComputedStyle(track).columnGap); }
+      function glideTo(left) { track.scrollTo({ left: left, behavior: 'smooth' }); }
+
+      // Mouse wheel: one card per gesture, gliding to it. At either end the page scrolls.
+      var busy = false;
+      track.addEventListener('wheel', function (e) {
+        var delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        var max = track.scrollWidth - track.clientWidth;
+        if ((delta < 0 && track.scrollLeft <= 0) || (delta > 0 && track.scrollLeft >= max - 1)) return;
+        e.preventDefault();
+        if (busy) return;
+        busy = true;
+        var index = Math.round(track.scrollLeft / step()) + (delta > 0 ? 1 : -1);
+        glideTo(index * step());
+        setTimeout(function () { busy = false; }, 450);
+      }, { passive: false });
+
+      // Mouse drag: follow the pointer, then glide to the nearest card. Touch uses native swipe.
+      var startX = 0, startLeft = 0, dragging = false, moved = false;
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        dragging = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+      });
+      window.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - startX;
+        if (!moved && Math.abs(dx) < 5) return;
+        moved = true;
+        track.style.scrollSnapType = 'none';
+        track.style.cursor = 'grabbing';
+        track.scrollLeft = startLeft - dx;
+      });
+      window.addEventListener('pointerup', function () {
+        if (!dragging) return;
+        dragging = false;
+        track.style.cursor = '';
+        if (!moved) return;
+        glideTo(Math.round(track.scrollLeft / step()) * step());
+        setTimeout(function () { track.style.scrollSnapType = ''; }, 450);
+      });
+      // A drag must not open the card it ended on, or start a native link/image drag.
+      track.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+      track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    })();
+  </script>
+  <!-- /build:articles -->

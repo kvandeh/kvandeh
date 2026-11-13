@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}" />
+<meta name="author" content="Kieran van der Heijde" />
+<link rel="canonical" href="{{ url }}" />
+<meta property="og:type" content="{{ og_type | default('website') }}" />
+<meta property="og:url" content="{{ url }}" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:description" content="{{ description }}" />
+<meta property="og:image" content="{{ image | default(site ~ '/assets/og.png') }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0b0b0d" />
+<link rel="icon" href="{{ root }}assets/kieran.jpg" />
+<link rel="stylesheet" href="{{ root }}styles.css" />
+{% if schema %}<script type="application/ld+json">{{ schema | tojson }}</script>
+{% endif %}
+{%- block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+{# For AI crawlers. `hidden` keeps it off screen and out of the accessibility tree. Only restate what the page says. #}
+<section class="ai-summary" hidden data-nosnippet>
+  <h2>Page summary</h2>
+  <p>{{ summary or description }}</p>
+</section>
+{{ header(root) }}
+<main id="content">
+{% block main %}{% endblock %}
+</main>
+{% include "footer.html.j2" %}
+{% block scripts %}{% endblock %}
+</body>
+</html>

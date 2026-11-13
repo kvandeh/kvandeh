@@ -1,0 +1,54 @@
+{% extends "base.html.j2" %}
+{% from "cards.html.j2" import article_card %}
+
+{% block head %}
+{# Syntax highlighting for ```language fenced blocks; the autoloader fetches each grammar on demand. #}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{% endblock %}
+
+{% block main %}
+  <article class="post">
+    <header class="post-head">
+      <div class="byline">
+        <img src="{{ root }}{{ article.avatar }}" alt="" width="28" height="28" />
+        <b>{{ article.author }}</b>
+        {#- Exact date in the tooltip; the script below rewrites the text as "3 days ago". #}
+        <span class="byline-date"><time class="relative" datetime="{{ article.date.isoformat() }}" title="{{ article.date | nice }}">{{ article.date | nice }}</time></span>
+      </div>
+      <h1>{{ article.title }}</h1>
+    </header>
+    <div class="post-body">
+{{ article.body | safe }}
+    {% if article.linkedin %}
+      <p><a href="{{ article.linkedin }}">Originally posted on LinkedIn</a></p>
+    {% endif %}
+    </div>
+  </article>
+  {% if read_next %}
+  <section class="articles" aria-labelledby="read-next">
+    <h2 id="read-next" class="read-next-title">Read next</h2>
+    <ul class="article-grid" role="list">
+      {% for a in read_next %}{{ article_card(a, root) }}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {{ contact(root) }}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.querySelectorAll('time.relative').forEach(function (t) {
+    var days = Math.round((Date.now() - new Date(t.dateTime)) / 864e5);
+    var units = [[365, 'year'], [30, 'month'], [7, 'week'], [1, 'day']];
+    if (days < 1) { t.textContent = 'Today'; return; }
+    if (days === 1) { t.textContent = 'Yesterday'; return; }
+    for (var i = 0; i < units.length; i++) {
+      var n = Math.floor(days / units[i][0]);
+      if (n >= 1) { t.textContent = n + ' ' + units[i][1] + (n > 1 ? 's' : '') + ' ago'; return; }
+    }
+  });
+</script>
+{% endblock %}

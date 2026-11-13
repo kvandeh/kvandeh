@@ -1,0 +1,28 @@
+{#- A plain-text map of the site for AI crawlers (llmstxt.org), built from the same lists as the sitemap. -#}
+# Kieran van der Heijde
+
+> Python Engineer at ASML in Veldhoven, the Netherlands. Builds PeekSeek, AlgoStudio and Angelo with Python, FastAPI and Rust.
+
+Kieran works mostly in Python with Flask and FastAPI. He built and runs PeekSeek, a competitive matchmaking platform for the game Unturned, and AlgoStudio, a platform for teaching programming with sandboxed Python and C#. He is open to Python and software roles across the Netherlands.
+
+## Projects
+
+- [Angelo]({{ site }}/#projects): Python mutation testing, about 10 times faster; calculates the score within 4.5 seconds. Docs: https://angelo.kcvdh.com, source: https://github.com/kvandeh/Angelo
+- [PeekSeek](https://peekseek.net): Ranked matchmaking and automated events for Unturned, played by over 2,500 users. Source: https://github.com/PeekSeek/PeekSeek
+- [AlgoStudio]({{ site }}/articles/algostudio-sandbox/): A programming education platform built with teachers from 3 applied universities in the Netherlands; runs student code in Docker.
+- [Bouncer](https://github.com/kvandeh/Bouncer): A language-model filter for Spotify Jam requests that did not hold up at real parties.
+
+## Pages
+
+- [Home]({{ site }}/): Who Kieran is, his projects and how to reach him.
+- [Resume]({{ site }}/resume.pdf): Resume as a PDF.
+{% for p in pages %}- [{{ p.title }}]({{ site }}/{{ p.slug }}/): {{ p.summary }}
+{% endfor %}
+## Articles
+
+{% for a in articles %}- [{{ a.title }}]({{ site }}/articles/{{ a.slug }}/): {{ a.summary }}
+{% endfor %}
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/kcvdh)
+- [GitHub](https://github.com/kvandeh)

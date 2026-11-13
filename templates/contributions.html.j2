@@ -1,0 +1,64 @@
+{% extends "base.html.j2" %}
+
+{% macro ci_icon(state) -%}
+{%- set label = {"SUCCESS": "passed", "FAILURE": "failed", "ERROR": "failed"}.get(state, "running") -%}
+<svg class="ci ci-{{ label }}" viewBox="0 0 24 24" role="img" aria-label="CI {{ label }}"><title>CI {{ label }}</title>
+{%- if label == "passed" %}<path d="M5 12.5l4.5 4.5L19 7.5"/>
+{%- elif label == "failed" %}<path d="M6 6l12 12M18 6L6 18"/>
+{%- else %}<circle cx="12" cy="12" r="4"/>{% endif %}</svg>
+{%- endmacro %}
+
+{% block main %}
+  <section class="contrib">
+    <h1 class="sr-only">Open source contributions</h1>
+    <div class="contrib-top">
+      <ul class="prs" aria-label="Recent pull requests">
+        {%- for pr in pull_requests %}
+        <li><a href="{{ pr.url }}">{% if pr.ci %}{{ ci_icon(pr.ci) }}{% endif %}<span class="pr-title">{{ pr.title }}</span><span class="pr-meta">{{ pr.repo }}</span></a></li>
+        {%- endfor %}
+      </ul>
+      <div class="grid" role="img" aria-label="{{ '{:,}'.format(grid.total) }} contributions in the last six months">
+        {%- for _ in range(grid.padding) %}<i class="pad"></i>{% endfor -%}
+        {%- for day in grid.days %}<i class="l{{ day.level }}" title="{{ day.count }} on {{ day.date }}"></i>{% endfor -%}
+      </div>
+    </div>
+    <div class="repos-bar">
+      <p class="contrib-total"><b>{{ total }}</b> contributions across <b>{{ repos | length }}</b> repositories this year</p>
+      <label>Sort by
+        <select id="sort">
+          <option value="commits">Commits by me</option>
+          <option value="stars">Stars</option>
+          <option value="forks">Forks</option>
+          <option value="pushed">Recently updated</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+    <ul class="repo-grid" id="repos" aria-label="Repositories">
+      {%- for r in repos %}
+      <li class="acard repo" data-name="{{ r.name | lower }}" data-stars="{{ r.stargazerCount }}" data-forks="{{ r.forkCount }}" data-commits="{{ r.commits }}" data-pushed="{{ r.pushedAt }}">
+        <a href="{{ r.url }}">
+          <div class="acard-body">
+            <span class="repo-top"><h2>{{ r.name }}</h2><span class="repo-commits"><b>{{ r.commits }}</b> commits by me</span></span>
+            {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+            <span class="acard-meta repo-meta"><span>{{ r.stargazerCount }} stars · {{ r.forkCount }} forks{% if r.primaryLanguage %} · {{ r.primaryLanguage.name }}{% endif %}</span><span>{{ r.owner.login }} · {{ r.role }}</span></span>
+          </div>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.getElementById('sort').addEventListener('change', function () {
+    var key = this.value, list = document.getElementById('repos');
+    var compare = {
+      name: function (a, b) { return a.dataset.name.localeCompare(b.dataset.name); },
+      pushed: function (a, b) { return b.dataset.pushed.localeCompare(a.dataset.pushed); }
+    }[key] || function (a, b) { return b.dataset[key] - a.dataset[key]; };
+    Array.from(list.children).sort(compare).forEach(function (li) { list.appendChild(li); });
+  });
+</script>
+{% endblock %}

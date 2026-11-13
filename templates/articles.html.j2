@@ -1,0 +1,12 @@
+{% extends "base.html.j2" %}
+{% from "cards.html.j2" import article_card %}
+
+{% block main %}
+  <section class="articles">
+    <h1 class="sr-only">Articles</h1>
+    <ul class="article-grid" role="list">
+      {% for a in articles %}{{ article_card(a, root) }}
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

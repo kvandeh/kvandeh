@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site }}/</loc><lastmod>{{ today }}</lastmod></url>
+  <url><loc>{{ site }}/articles/</loc><lastmod>{{ today }}</lastmod></url>
+  <url><loc>{{ site }}/resume.pdf</loc></url>
+{% for a in articles %}  <url><loc>{{ site }}/articles/{{ a.slug }}/</loc><lastmod>{{ a.date.isoformat() }}</lastmod></url>
+{% endfor %}{% for p in pages %}  <url><loc>{{ site }}/{{ p.slug }}/</loc><lastmod>{{ today }}</lastmod></url>
+{% endfor %}  <url><loc>https://angelo.kcvdh.com/</loc></url>
+</urlset>

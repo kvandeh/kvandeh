@@ -1,0 +1,26 @@
+{# Cards are fully clickable: the whole card is one link. #}
+
+{% macro article_card(a, root) -%}
+<li class="acard">
+  <a href="{{ root }}articles/{{ a.slug }}/">
+    <div class="acard-body">
+      {#- Every card gets the label row, hidden when not featured, so all titles line up. #}
+      {% if a.featured %}<span class="featured">Featured</span>{% else %}<span class="featured" aria-hidden="true" style="visibility: hidden">Featured</span>{% endif %}
+      <h3>{{ a.title }}</h3>
+      <p>{{ a.summary }}</p>
+      <span class="acard-meta"><time datetime="{{ a.date.isoformat() }}">{{ a.date | nice }}</time> · {{ a.minutes }} min read</span>
+    </div>
+  </a>
+</li>
+{%- endmacro %}
+
+{% macro page_card(href, title, summary) -%}
+<li class="acard">
+  <a href="{{ href }}">
+    <div class="acard-body">
+      <h3>{{ title }}</h3>
+      <p>{{ summary }}</p>
+    </div>
+  </a>
+</li>
+{%- endmacro %}
