@@ -10,7 +10,7 @@
 <meta property="og:type" content="{{ og_type | default('website') }}" />
 <meta property="og:url" content="{{ url }}" />
 <meta property="og:title" content="{{ title }}" />
-<meta property="og:description" content="{{ description }}" />
+<meta property="og:description" content="{{ og_description or description }}" />
 <meta property="og:image" content="{{ image | default(site ~ '/assets/og.png') }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#0b0b0d" />
@@ -27,7 +27,7 @@
   <h2>Page summary</h2>
   <p>{{ summary or description }}</p>
 </section>
-{{ header(root) }}
+{% include "header.html.j2" %}
 <main id="content">
 {% block main %}{% endblock %}
 </main>

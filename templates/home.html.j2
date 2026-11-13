@@ -1,0 +1,203 @@
+{% extends "base.html.j2" %}
+
+{% block head %}
+{# Keywords live here for recruiter boolean search + ATS, so the page itself stays clean of jargon. #}
+<meta name="keywords" content="Software Engineer, Backend Developer, Python Developer, Python Engineer, Python, Flask, FastAPI, Netherlands, Veldhoven, Eindhoven" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Kieran van der Heijde, Python Engineer at ASML" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kieran van der Heijde",
+  "jobTitle": "Python Engineer",
+  "worksFor": { "@type": "Organization", "name": "ASML" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Veldhoven", "addressCountry": "NL" },
+  "url": "https://kcvdh.com",
+  "email": "mailto:kieran@kcvdh.com",
+  "knowsLanguage": ["en", "nl"],
+  "knowsAbout": [
+    "Python", "SQL", "JavaScript", "C#", "Rust", "FastAPI", "Flask", "SQLAlchemy", "Pydantic",
+    "REST APIs", "Jinja2", "HTMX", "PostgreSQL", "pandas", "NumPy", "Metabase", "Docker", "Linux",
+    "Traefik", "Git", "CI/CD", "pytest", "unit testing", "mutation testing", "code review",
+    "backend engineering", "mentoring"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Python Engineer",
+    "occupationLocation": { "@type": "City", "name": "Veldhoven" },
+    "skills": "Python, FastAPI, Flask, PostgreSQL, Docker, Linux, SQL"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Tilburg University" },
+    { "@type": "EducationalOrganization", "name": "Jan van Brabant College" }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/kcvdh",
+    "https://github.com/kvandeh",
+    "https://github.com/sponsors/kvandeh"
+  ],
+  "image": "https://kcvdh.com/assets/kieran.jpg",
+  "subjectOf": [
+    { "@type": "DigitalDocument", "name": "Resume", "url": "https://kcvdh.com/resume.pdf" }
+  ],
+  "owns": [
+    { "@type": "SoftwareSourceCode", "name": "Angelo", "url": "https://angelo.kcvdh.com", "codeRepository": "https://github.com/kvandeh/Angelo" },
+    { "@type": "SoftwareSourceCode", "name": "PeekSeek", "url": "https://peekseek.net", "codeRepository": "https://github.com/PeekSeek/PeekSeek" },
+    { "@type": "SoftwareSourceCode", "name": "Bouncer", "codeRepository": "https://github.com/kvandeh/Bouncer" },
+    { "@type": "WebApplication", "name": "AlgoStudio" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block main %}
+  <!-- HERO: a small ASML "currently" snippet sits on top of the text. -->
+  <section class="hero" id="about">
+    <h1 class="reveal">Software by profession,<br /><em>engineer by obsession.</em></h1>
+    <p class="lede reveal">
+      I'm <b>Kieran van der Heijde</b>, a believer in <b>keeping things simple</b>. I like taking complex ideas and turning them into products
+      that are robust, fast, and genuinely good to use. Mostly in Python, usually with <b>Flask</b> or <b>FastAPI</b>.
+    </p>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" target="_blank" href="mailto:kieran@kcvdh.com" data-track="cta-email-hero"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.3-7.47 4.67a1 1 0 0 1-1.06 0L4 8.3V18h16V8.3z"/></svg>Contact</a>
+      <a class="btn" href="#projects" data-track="cta-projects">Projects</a>
+      <a class="btn" target="_blank" href="{{ root }}resume.pdf" download="Kieran-van-der-Heijde-Python-Engineer-Resume.pdf" data-track="cta-resume">Resume</a>
+      <a class="iconlink" target="_blank" href="https://www.linkedin.com/in/kcvdh" rel="me" data-track="link-linkedin" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="iconlink" target="_blank" href="https://github.com/kvandeh" rel="me" data-track="link-github" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.59-4.04-1.59-.55-1.37-1.34-1.74-1.34-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.83 0-1.29.47-2.34 1.23-3.17-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 6 0c2.29-1.53 3.3-1.21 3.3-1.21.65 1.65.24 2.87.12 3.17.77.83 1.23 1.88 1.23 3.17 0 4.53-2.81 5.53-5.49 5.82.43.36.82 1.09.82 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.22.68.83.56C20.56 21.88 24 17.49 24 12.29 24 5.78 18.63.5 12 .5z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Slow, continuous moving line of faint wordmark logos (set repeated x3 for a seamless loop). -->
+  <section class="brandstrip reveal" aria-hidden="true">
+    <div class="brand-track">
+      <img class="brand" src="{{ root }}assets/logos/wm/peekseek.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/fastapi.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/docker.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/asml.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/python.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/algostudio.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/flask.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/postgresql.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/git-scm.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/linux.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/peekseek.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/fastapi.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/docker.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/asml.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/python.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/algostudio.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/flask.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/postgresql.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/git-scm.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/linux.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/peekseek.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/fastapi.png" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/docker.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/asml.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/python.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/algostudio.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/flask.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/postgresql.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/git-scm.svg" alt="" />
+      <img class="brand" src="{{ root }}assets/logos/wm/linux.svg" alt="" />
+    </div>
+  </section>
+
+  <!-- WORK: Angelo as the lead story, three projects underneath. -->
+  <section class="work-x" id="projects">
+    <div class="ed">
+
+      <article class="ed-lead reveal">
+        <div class="ed-top">
+          <h2>Python mutation testing, <em>10× faster.</em></h2>
+        </div>
+        <p>
+          Mutation coverage is seen as the best measure of a test suite. The blocker of using it was the speed.
+          Today, <b>Angelo</b> can calculate the score within <b>4.5 seconds</b>. Optimizations validated by published papers.
+        </p>
+        <div class="links">
+          <a class="lbtn" href="https://angelo.kcvdh.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="arr"><path d="M7 17 17 7M9 7h8v8"/></svg>Docs</a>
+          <a class="lbtn" href="https://github.com/kvandeh/Angelo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+        </div>
+      </article>
+
+      <div class="ed-cols">
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <img class="p-logo" src="{{ root }}assets/logos/wm/peekseek.png" alt="PeekSeek" />
+            <img class="tech" src="{{ root }}assets/rocketmod.png" alt="RocketMod" title="RocketMod" />
+          </div>
+          <p>
+            Over <b>2,500 users</b> have played ranked matchmaking & automated events. Operating solo <b>marketing</b> was a big part.
+          </p>
+          <div class="links">
+            <a class="lbtn" href="https://peekseek.net" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="arr"><path d="M7 17 17 7M9 7h8v8"/></svg>Live</a>
+            <a class="lbtn" href="https://github.com/PeekSeek/PeekSeek" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+          </div>
+        </article>
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <img class="p-logo" src="{{ root }}assets/logos/wm/algostudio.svg" alt="AlgoStudio" />
+            <img class="tech" src="{{ root }}assets/docker.svg" alt="Docker" title="Docker" />
+          </div>
+          <p>
+            Solving many real issues together with teachers from 3 applied universities in the Netherlands.
+          </p>
+        </article>
+
+        <article class="ed-col reveal">
+          <div class="ed-top">
+            <span class="p-word">Bouncer</span>
+            <span class="tech-ai" title="AI">AI</span>
+          </div>
+          <p>
+            Not all projects succeed, I found that current day LLM's perform poorly to judge songs based on their training.
+          </p>
+          <div class="links">
+            <a class="lbtn" href="https://github.com/kvandeh/Bouncer" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Repository</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  {% include "carousel.html.j2" %}
+
+  {% include "contact.html.j2" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+  // Reveal on scroll, off for reduced-motion users.
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); }); return;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Conversion events, only if GoatCounter is present; silent otherwise.
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-track]');
+    if (!t || !window.goatcounter || !window.goatcounter.count) return;
+    window.goatcounter.count({ path: 'event/' + t.getAttribute('data-track'), title: t.getAttribute('data-track'), event: true });
+  });
+</script>
+
+<!-- Cookieless analytics, no banner. TODO: replace YOURCODE from a free goatcounter.com site. -->
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src=".//gc.zgo.at/count.js"></script>
+{% endblock %}

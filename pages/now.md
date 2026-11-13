@@ -1,7 +1,7 @@
 ---
 card: What I am working on, building and studying this month.
 title: Now
-summary: What Kieran van der Heijde is working on right now: Python engineering at ASML, PeekSeek, AlgoStudio and studies at Tilburg University.
+summary: "What Kieran van der Heijde is working on right now: Python engineering at ASML, PeekSeek, AlgoStudio and studies at Tilburg University."
 ---
 
 What I am focused on at the moment. *Updated November 2026.*

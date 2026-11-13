@@ -1,8 +1,8 @@
 ---
-card: My stack as a diagram: plain JavaScript, FastAPI, PostgreSQL and Rust.
+card: "My stack as a diagram: plain JavaScript, FastAPI, PostgreSQL and Rust."
 title: Uses
 ai_summary: Kieran van der Heijde's tech stack. The browser runs plain JavaScript with no framework. Requests go through Traefik, which handles HTTPS and routing, to a FastAPI backend written in Python with Pydantic. FastAPI stores data in PostgreSQL through SQLAlchemy and hands performance-critical work to compiled Rust executables. Everything runs in Docker on Linux. He also uses pandas, NumPy and Metabase for data, pytest and mutation testing, Git, CI/CD, SQL and C#.
-summary: The stack Kieran van der Heijde builds with: plain JavaScript in the browser, FastAPI and PostgreSQL on the server, and Rust executables for the fast parts.
+summary: "The stack Kieran van der Heijde builds with: plain JavaScript in the browser, FastAPI and PostgreSQL on the server, and Rust executables for the fast parts."
 ---
 
 The stack behind PeekSeek, AlgoStudio and my day job. I keep it small on purpose.

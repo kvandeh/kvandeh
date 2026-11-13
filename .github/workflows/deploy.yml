@@ -29,21 +29,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Builds articles, pages/*.md, /contributions (GitHub API), the footer and the sitemap.
+      # Builds every page into _site/ and fails on a broken internal link.
       - name: Build site
-        run: pip install markdown jinja2 && python3 build.py
+        run: pip install markdown jinja2 pyyaml && python3 build.py
         env:
           GH_TOKEN: ${{ github.token }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # The site is plain static files at the repo root (index.html, styles.css,
-      # resume/, assets/, CNAME, .nojekyll). Ship the whole root as-is.
+      # build.py writes the whole site, and only the site, into _site/.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy
         id: deployment
@@ -52,7 +51,7 @@ jobs:
       # Tell Bing, Yandex and other IndexNow engines the pages changed.
       - name: Ping IndexNow
         run: |
-          URLS=$(grep -o 'https://kcvdh.com/[^<]*' sitemap.xml | sed 's/.*/"&"/' | paste -sd,)
+          URLS=$(grep -o 'https://kcvdh.com/[^<]*' _site/sitemap.xml | sed 's/.*/"&"/' | paste -sd,)
           curl -sS -X POST https://api.indexnow.org/indexnow \
             -H 'Content-Type: application/json; charset=utf-8' \
             -d "{\"host\":\"kcvdh.com\",\"key\":\"12b6164e53b149f6b7ea5543f1d5cc12\",\"keyLocation\":\"https://kcvdh.com/12b6164e53b149f6b7ea5543f1d5cc12.txt\",\"urlList\":[$URLS]}" \

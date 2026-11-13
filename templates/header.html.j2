@@ -1,0 +1,19 @@
+{# On the homepage the chip opens LinkedIn; everywhere else it leads home. #}
+<header class="topbar">
+  {% if home %}
+  <a class="now-chip" href="https://www.linkedin.com/in/kcvdh" target="_blank" aria-label="Kieran, Python Engineer at ASML, Veldhoven">
+  {% else %}
+  <a class="now-chip" href="{{ root }}">
+  {% endif %}
+    <span class="now-chip-photo">
+      <img src="{{ root }}assets/kieran.jpg" alt="Kieran van der Heijde" onerror="this.style.display='none';this.parentNode.classList.add('noimg')" />
+      <span class="now-chip-initials">K</span>
+    </span>
+    <span class="now-chip-role"><b>Python Engineer</b> @ <img class="asml-logo" src="{{ root }}assets/asml.svg" alt="ASML" width="1065" height="300" /><span class="now-loc"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Veldhoven, NL</span></span>
+  </a>
+  <nav aria-label="Primary">
+    <a href="{{ root }}contributions/">Contributions</a>
+    <a target="_blank" href="{{ root }}resume.pdf" download="Kieran-van-der-Heijde-Python-Engineer-Resume.pdf">Resume</a>
+    <a class="btn btn-primary" href="mailto:kieran@kcvdh.com" data-track="cta-email-hero"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.3-7.47 4.67a1 1 0 0 1-1.06 0L4 8.3V18h16V8.3z"/></svg>Contact</a>
+  </nav>
+</header>
