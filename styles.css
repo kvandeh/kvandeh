@@ -87,7 +87,8 @@ strong {
 .topbar nav {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 3vw, 28px);
+  gap: clamp(14px, 3vw, 28px);
+  font-size: 15px;
 }
 
 main > section {
@@ -319,7 +320,10 @@ main > section {
 }
 
 @media (max-width: 560px) {
-  .topbar nav a:not(.btn) {
+  .topbar nav {
+    font-size: 14px;
+  }
+  .now-chip-role {
     display: none;
   }
   .brand {
