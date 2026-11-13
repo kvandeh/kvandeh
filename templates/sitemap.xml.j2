@@ -5,5 +5,6 @@
   <url><loc>{{ site }}/resume.pdf</loc></url>
 {% for a in articles %}  <url><loc>{{ site }}/articles/{{ a.slug }}/</loc><lastmod>{{ a.date.isoformat() }}</lastmod></url>
 {% endfor %}{% for p in pages %}  <url><loc>{{ site }}/{{ p.slug }}/</loc><lastmod>{{ today }}</lastmod></url>
+{% endfor %}{% for alias in aliases %}  <url><loc>{{ site }}/{{ alias }}/</loc><lastmod>{{ today }}</lastmod></url>
 {% endfor %}  <url><loc>https://angelo.kcvdh.com/</loc></url>
 </urlset>

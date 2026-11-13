@@ -22,7 +22,14 @@ ROOT = Path(__file__).parent
 ARTICLES = ROOT / "articles"
 PAGES = ROOT / "pages"
 GITHUB_LOGIN = "kvandeh"
-ALIASES = {"techstack": "/uses/", "about": "/now/"}
+# Short, guessable URLs. Each is a small indexable page that redirects to its target, and is listed in the sitemap.
+ALIASES = {
+    "about": "/now/", "techstack": "/uses/", "stack": "/uses/", "setup": "/uses/",
+    "blog": "/articles/", "posts": "/articles/", "writing": "/articles/",
+    "github": "/contributions/", "opensource": "/contributions/", "oss": "/contributions/",
+    "cv": "/resume.pdf", "resume": "/resume.pdf",
+    "projects": "/#projects", "contact": "/#contact", "sitemap": "/site/",
+}
 
 
 def read_markdown(md_file):
@@ -250,7 +257,7 @@ def main():
         description="Every page on kcvdh.com: Kieran van der Heijde's projects, articles, open source contributions, tech stack and resume.",
         url=f"{SITE}/site/"))
     pages.append({"slug": "site", "title": "Site", "summary": "Every page and article on kcvdh.com."})
-    write(ROOT / "sitemap.xml", render("sitemap.xml.j2", articles=articles, pages=pages, today=datetime.date.today().isoformat()))
+    write(ROOT / "sitemap.xml", render("sitemap.xml.j2", articles=articles, pages=pages, aliases=ALIASES, today=datetime.date.today().isoformat()))
     write(ROOT / "llms.txt", render("llms.txt.j2", articles=articles, pages=pages))
     print(f"Built {len(articles)} article(s).")
 

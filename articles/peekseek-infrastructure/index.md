@@ -4,7 +4,6 @@ summary: Three hosting models and two analytics tools for PeekSeek, and why the 
 author: Kieran van der Heijde
 avatar: assets/kieran.jpg
 date: 2026-11-12
-featured: true
 cover: architecture.png
 ---
 
