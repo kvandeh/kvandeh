@@ -1,5 +1,5 @@
 ---
-title: Running untrusted student code in a disposable container
+title: Letting Strangers Run Code Safely
 summary: How AlgoStudio isolates each submission with Docker and gVisor, and which gap remains.
 author: Kieran van der Heijde
 avatar: assets/kieran.jpg

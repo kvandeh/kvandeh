@@ -4,10 +4,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'  # daily, keeps /contributions fresh
 
 # Least-privilege permissions the Pages deploy needs.
 permissions:
   contents: read
+  actions: write  # lets the run re-enable its own schedule (see the last step)
   pages: write
   id-token: write
 
@@ -26,9 +29,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Turns articles/*/index.md into pages, refreshes the carousel, footer and sitemap.
-      - name: Build articles
+      # Builds articles, pages/*.md, /contributions (GitHub API), the footer and the sitemap.
+      - name: Build site
         run: pip install markdown && python3 build.py
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -52,3 +57,10 @@ jobs:
             -H 'Content-Type: application/json; charset=utf-8' \
             -d "{\"host\":\"kcvdh.com\",\"key\":\"12b6164e53b149f6b7ea5543f1d5cc12\",\"keyLocation\":\"https://kcvdh.com/12b6164e53b149f6b7ea5543f1d5cc12.txt\",\"urlList\":[$URLS]}" \
             -w 'IndexNow HTTP %{http_code}\n'
+
+      # GitHub switches off cron schedules after 60 days without repo activity.
+      # Re-enabling the workflow on every run resets that clock, so /contributions never goes stale.
+      - name: Keep the daily schedule alive
+        run: gh workflow enable deploy.yml --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}

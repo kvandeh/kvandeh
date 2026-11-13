@@ -4,7 +4,7 @@
   --line: #26262c;
   --text: #f0ede7;
   --muted: #a2a2aa;
-  --faint: #6f6f78;
+  --faint:     #8b8b94;
   --accent: #6ee7d6;
   --accent-ink: #06201c;
 
@@ -110,10 +110,6 @@ main > section {
   color: var(--text);
   font-weight: 560;
   font-size: 0.9rem;
-  transition:
-    border-color 0.18s ease,
-    background 0.18s ease,
-    transform 0.18s ease;
 }
 .btn:focus-visible {
   outline: 2px solid var(--accent);
@@ -131,7 +127,6 @@ main > section {
   justify-content: center;
   padding: 0 4px;
   color: var(--muted);
-  transition: color 0.18s ease;
 }
 .iconlink svg {
   width: 19px;
@@ -285,19 +280,12 @@ main > section {
 }
 .band-rule {
   flex: 1;
-  height: 1px;
-  background: var(--line);
 }
 .band-visit {
   color: var(--accent);
   font-weight: 600;
   font-size: 0.92rem;
   white-space: nowrap;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.18s ease;
-}
-.band-visit:hover {
-  border-color: var(--accent);
 }
 
 .band-line {
@@ -388,25 +376,12 @@ main > section {
   color: var(--faint);
   margin: 0 0 20px;
 }
-.lab-eyebrow::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
 .xcard {
   display: block;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--bg-raise);
   padding: clamp(20px, 2.6vw, 30px);
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-.xcard:hover {
-  border-color: #3a3a44;
-  transform: translateY(-2px);
 }
 .xcard-head {
   display: flex;
@@ -719,7 +694,8 @@ main > section {
   gap: 8px;
   flex: 1;
 }
-.acard h3 {
+.acard h3,
+.repo h2 {
   font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 600;
@@ -825,15 +801,28 @@ main > section {
   display: block;
   margin-top: 40px;
   padding-top: 48px;
+  padding-bottom: 78px; /* 48px base + 30px breathing room below the footer */
 }
 .foot-cols {
   display: grid;
   /* Each column takes its own width; the free space is split evenly between them. */
-  grid-template-columns: auto auto minmax(0, auto);
+  grid-template-columns: auto auto auto minmax(0, auto);
   justify-content: space-between;
   gap: 32px 48px;
 }
+/* Name and role are one link home. */
+.foot-id {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+.foot-id:focus-visible,
+.foot h2 a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 .foot-name {
+  display: block;
   font-weight: 600;
   font-size: 1rem;
   color: var(--text);
@@ -882,8 +871,16 @@ main > section {
   display: grid;
   gap: 8px;
 }
+.foot-about {
+  display: flex;
+  flex-direction: column;
+}
+/* Sits at the bottom of the first column, in the space under the icons. */
 .foot-legal {
-  margin: 40px 0 0;
+  margin: auto 0 0;
+  padding-top: 24px;
+  color: var(--faint);
+  font-size: 0.85rem;
 }
 @media (max-width: 760px) {
   .foot-cols {
@@ -955,4 +952,316 @@ main > section {
   background: var(--bg-raise);
   border-radius: 4px;
   padding: 1px 5px;
+}
+
+/* ---------- Simple pages (pages/*.md) ---------- */
+.page-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+/* ---------- Contributions ---------- */
+.contrib {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 72px) var(--pad);
+}
+.contrib-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: stretch;
+}
+.prs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.prs a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+.prs a:focus-visible,
+.repo a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.pr-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pr-meta {
+  flex: none;
+  color: var(--faint);
+  font-size: 0.78rem;
+}
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 12px);
+  grid-auto-columns: 12px;
+  gap: 3px;
+}
+.grid i {
+  border-radius: 2px;
+  background: var(--bg-raise);
+}
+.grid i.pad {
+  background: none;
+}
+.grid .l1 { background: color-mix(in srgb, var(--accent) 25%, var(--bg-raise)); }
+.grid .l2 { background: color-mix(in srgb, var(--accent) 50%, var(--bg-raise)); }
+.grid .l3 { background: color-mix(in srgb, var(--accent) 75%, var(--bg-raise)); }
+.grid .l4 { background: var(--accent); }
+.repos-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: 64px 0 24px;
+}
+.contrib-total {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.contrib-total b {
+  color: var(--text);
+}
+.repos-bar label {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.repos-bar select {
+  margin-left: 8px;
+  background: var(--bg-raise);
+  color: var(--text);
+  border: 0;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font: inherit;
+}
+.repo-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 48px;
+}
+.repo-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.repo-top h2 {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.repo-commits {
+  color: var(--faint);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.repo-commits b {
+  color: var(--accent);
+}
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-top: auto;
+}
+@media (max-width: 900px) {
+  .contrib-top {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    overflow-x: auto;
+  }
+}
+@media (max-width: 640px) {
+  .repo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CI status beside each pull request */
+.ci {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ci-passed { color: var(--accent); }
+.ci-failed { color: #f08a8a; }
+.ci-running { color: var(--faint); fill: currentColor; }
+
+/* ---------- Stack diagram (/uses): plain HTML lists, each box a native <details> ---------- */
+.stack {
+  margin: 32px 0 16px;
+}
+.stack figcaption {
+  color: var(--faint);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+.stack ol,
+.stack ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.stack-flow,
+.zone-flow,
+.zone,
+.node {
+  display: flex;
+  align-items: center;
+}
+.stack-flow {
+  gap: 0;
+}
+.zone {
+  flex: 1;
+}
+.zone-box {
+  flex: 1;
+  background: color-mix(in srgb, var(--bg-raise) 55%, var(--bg));
+  border-radius: var(--radius-lg);
+  padding: 20px 24px 24px;
+}
+.zone-label {
+  display: block;
+  color: var(--faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.branch ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.arrow {
+  flex: none;
+  width: 44px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.node details {
+  width: 180px;
+  background: color-mix(in srgb, var(--text) 7%, var(--bg-raise));
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.node summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  list-style: none;
+}
+.node summary::-webkit-details-marker {
+  display: none;
+}
+.node summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+.node summary b {
+  color: var(--text);
+  font-size: 1rem;
+}
+.node summary span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.node summary span::after {
+  content: " +";
+  color: var(--accent);
+}
+.node details[open] summary span::after {
+  content: " \2212";
+}
+.node details p {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+/* Narrow screens: one column, arrows point down, the fork shows a single arrow. */
+@media (max-width: 900px) {
+  .stack-flow,
+  .zone-flow,
+  .zone,
+  .node {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .node details {
+    width: auto;
+  }
+  .arrow {
+    width: auto;
+    padding: 10px 0;
+    transform: rotate(90deg);
+  }
+  .arrow-up {
+    transform: none;
+  }
+  .arrow-up::before {
+    content: "\2193";
+  }
+  .arrow-up {
+    font-size: 0;
+  }
+  .arrow-up::before {
+    font-size: 1.3rem;
+  }
+  .arrow-down {
+    display: none;
+  }
+  .branch ul {
+    gap: 16px;
+  }
+}
+
+.foot h2 a {
+  color: inherit;
+}
+/* Footer icons and the resume link keep a 24px tap target (WCAG 2.5.8). */
+.foot-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+}
+.site-articles-title {
+  margin-top: 64px;
 }

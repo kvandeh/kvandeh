@@ -1,5 +1,5 @@
 ---
-title: A mutation testing tool must never report a false score
+title: When 0% Means Success
 summary: Angelo makes Python mutation testing up to 10.8 times faster. The difficult part was to keep the score true.
 author: Kieran van der Heijde
 avatar: assets/kieran.jpg

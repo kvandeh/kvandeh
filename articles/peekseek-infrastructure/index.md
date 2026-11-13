@@ -1,5 +1,5 @@
 ---
-title: Minimal infrastructure for a solo-operated matchmaking platform
+title: One Server Runs Everything
 summary: Three hosting models and two analytics tools for PeekSeek, and why the smallest set of tools was the best set.
 author: Kieran van der Heijde
 avatar: assets/kieran.jpg

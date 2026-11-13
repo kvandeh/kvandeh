@@ -1,5 +1,5 @@
 ---
-title: Why a language model cannot judge a song
+title: 95% Accurate, Useless at Parties
 summary: Bouncer filters Spotify Jam requests with a language model. It scored 95.2% on an evaluation set, but failed at real parties.
 author: Kieran van der Heijde
 avatar: assets/kieran.jpg
