@@ -1097,3 +1097,66 @@ main > section {
 .site-articles-title {
   margin-top: 64px;
 }
+
+/* Article timeline: a vertical rail with dots; milestones get a filled dot and a tag. */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.4em 0 1.8em;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0.6em;
+  bottom: 0.6em;
+  width: 2px;
+  background: var(--line);
+}
+.timeline li {
+  position: relative;
+  padding: 0 0 1.1em 30px;
+}
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--faint);
+}
+.timeline time {
+  display: block;
+  color: var(--faint);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.timeline p {
+  margin: 0.1em 0 0;
+}
+.timeline .win::before {
+  background: var(--faint);
+}
+.timeline .win p {
+  color: var(--text);
+}
+.timeline .win time::after {
+  content: "Milestone";
+  margin-left: 0.6em;
+  padding: 0.1em 0.55em;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+

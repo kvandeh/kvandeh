@@ -37,10 +37,31 @@ ALIASES = {
 }
 
 
+def timeline_entry(line):
+    """`- Jan 2025 | text`, or `- Aug 2025 | ! text` for a milestone."""
+    date, text = (part.strip() for part in line.lstrip("- ").split("|", 1))
+    milestone = text.startswith("!")
+    text = markdown.markdown(text.lstrip("! ")).removeprefix("<p>").removesuffix("</p>")
+    try:
+        stamp = datetime.datetime.strptime(date, "%b %Y").strftime("%Y-%m")
+    except ValueError:
+        stamp = date
+    css = ' class="win"' if milestone else ""
+    return f'<li{css}><time datetime="{stamp}">{date}</time><p>{text}</p></li>'
+
+
+def expand_timelines(body):
+    """Turns a `::: timeline` ... `:::` block of `date | text` lines into the timeline list."""
+    def to_html(block):
+        entries = (timeline_entry(line) for line in block.group(1).splitlines() if line.strip())
+        return '<ol class="timeline">\n' + "\n".join(entries) + "\n</ol>"
+    return re.sub(r"^::: timeline\n(.*?)^:::$", to_html, body, flags=re.S | re.M)
+
+
 def read_markdown(md_file):
     header, body = re.match(r"---\n(.*?)\n---\n(.*)", md_file.read_text(encoding="utf-8"), re.S).groups()
     meta = yaml.safe_load(header)
-    meta["body"] = markdown.markdown(body, extensions=["extra"])
+    meta["body"] = markdown.markdown(expand_timelines(body), extensions=["extra"])
     return meta, body
 
 

@@ -34,6 +34,7 @@ Rules for any agent (or person) editing kcvdh.com. These come straight from Kier
 - **The header nav stays short:** Contributions, Articles, Resume. Secondary pages (Uses, Now) live in the footer.
 - **No empty or placeholder pages.** Do not publish a page until it has real content (for example, a bibliography only once Kieran supplies entries).
 - **Small UX matters:** long text truncates with an ellipsis, adjacent columns line up in height, and nothing overflows on phones.
+- **Timelines in markdown:** a `::: timeline` block of `- Jan 2025 | text` lines, closed with `:::`. Start the text with `!` to mark a milestone. `build.py` turns it into `<ol class="timeline">`.
 - **Reuse existing classes** (`.post`, `.acard`, `.article-grid`, `.foot`) before writing new CSS.
 
 ## SEO
